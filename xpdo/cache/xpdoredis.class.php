@@ -32,8 +32,6 @@ class xPDORedis extends xPDOCache {
 
     public function __construct(& $xpdo, $options = array()) {
         parent :: __construct($xpdo, $options);
-        require_once __DIR__ . '/predis/lib/Predis/Autoloader.php';
-        Predis\Autoloader::register();
 
         if (class_exists('\\Predis\\Client', true)) {
             $server = $this->getOption($this->key . '_redis_server', $options, $this->getOption('redis_server', $options, '127.0.0.1:6379'));
