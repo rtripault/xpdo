@@ -76,7 +76,7 @@ class xPDORedis extends xPDOCache {
 
     public function delete($key, $options= array()) {
         if (!isset($options['multiple_object_delete']) || empty($options['multiple_object_delete'])) {
-            $deleted = $this->redis->delete($this->getCacheKey($key));
+            $deleted = $this->redis->del($this->getCacheKey($key));
         } else {
             $deleted = $this->redis->flushdb();
         }
